@@ -119,6 +119,7 @@ class Window(Frame):
                         else:
                                 messagebox.showerror("Error", "ERROR: invalid expression")
                                 return "ERROR"
+
 root = Tk()
 app = Window(root)
 root.wm_title("Calculator")

@@ -20,16 +20,17 @@ def register():
  
     Label(register_screen, text="Podaj dane", ).pack()
     Label(register_screen, text="").pack()
-    username_lable = Label(register_screen, text="Nazwa użytkownika  ")
+    username_lable = Label(register_screen, text="Nazwa użytkownika")
     username_lable.pack()
     username_entry = Entry(register_screen, textvariable=username)
     username_entry.pack()
-    password_lable = Label(register_screen, text="Hasło ")
+    password_lable = Label(register_screen, text="Hasło")
     password_lable.pack()
     password_entry = Entry(register_screen, textvariable=password, show='*')
     password_entry.pack()
     Label(register_screen, text="By Kola1025#7777").pack()
     Button(register_screen, text="Rejestracja", width=10, height=1, bg="green", command = register_user).pack()
+    register_screen.resizable(False, False)
  
  
  
@@ -59,19 +60,20 @@ def login():
     password_login_entry.pack()
     Label(login_screen, text="").pack()
     Button(login_screen, text="Login", width=10, height=1, bg="#93F600", command = login_verify).pack()
+    login_screen.resizable(False, False)
  
 def info():
     global info_screen
     info_screen = Toplevel(main_screen)
     info_screen.title("Informacje")
     info_screen.geometry("300x250")
-    info_screen.configure(bg="#93F600")
-    Label(info_screen, text="By Kola1025 #7777", bg="#93F600",).pack()
-    Label(info_screen, text="V0.2", bg="#93F600").pack()
-    Label(info_screen, text="18 May 2021", bg="#93F600").pack()
+    info_screen.configure(bg="#BCE27F")
+    Label(info_screen, text="By Kola1025 #7777", bg="#BCE27F",).pack()
+    Label(info_screen, text="V0.2", bg="#BCE27F").pack()
+    Label(info_screen, text="18 May 2021", bg="#BCE27F").pack()
     Button(info_screen, text="Zamknij", bg="green", command=zamknij2).pack()
     Label(text="") 
-    
+    info_screen.resizable(False, False)
 
 
 def register_user():
@@ -118,6 +120,7 @@ def login_sucess():
     login_success_screen.geometry("150x100")
     Label(login_success_screen, text="Zalogowano Pomyślnie").pack()
     Button(login_success_screen, text="OK", command=kal_zwyk).pack()
+    login_success_screen.resizable(False, False)
     
 def kal_zwyk():
     global kal_zwyk_screen
@@ -128,6 +131,8 @@ def kal_zwyk():
     Button(kal_zwyk_screen, text="Profesjonalny", command=pro ).pack()
     Button(kal_zwyk_screen, text="Zwykły",command=zwyk).pack()
     Button(kal_zwyk_screen, text="Zamknij", command=zamknij1).pack()
+    
+
 
 def zwyk():
     import calc
@@ -138,6 +143,7 @@ def pro():
     pro_screen.title("Ta funkcja wyjdzie w wersji 0.3 Przepraszamy" )
     Label(pro_screen, text="Ta funkcja wyjdzie w wersji 0.3 Przepraszamy").pack()
     Button(pro_screen, text="OK",command=zamknij).pack()
+    pro_screen.resizable(False, False)
      
 
 
@@ -148,6 +154,7 @@ def password_not_recognised():
     password_not_recog_screen.geometry("150x100")
     Label(password_not_recog_screen, text="Złe hasło ").pack()
     Button(password_not_recog_screen, text="OK", command=delete_password_not_recognised).pack()
+    password_not_recog_screen.resizable(False, False)
  
 
 def user_not_found():
@@ -157,6 +164,31 @@ def user_not_found():
     user_not_found_screen.geometry("150x100")
     Label(user_not_found_screen, text="Użytkownik nie znaleziony").pack()
     Button(user_not_found_screen, text="OK", command=delete_user_not_found_screen).pack()
+    user_not_found_screen.resizable(False, False)
+
+def zmiany():
+    global zmiany_screen
+    zmiany_screen = Toplevel(main_screen)
+    zmiany_screen.title("Zmiany")
+    zmiany_screen.geometry("300x350")
+    zmiany_screen.configure(bg="#BCE27F")
+    Label(zmiany_screen, text="V0.2", bg="#BCE27F").pack()
+    Label(zmiany_screen, text="-Wprowadzono funkcje zamykania okien.", bg="#BCE27F").pack()
+    Label(zmiany_screen, text="-Wprowadzono informację.", bg="#BCE27F").pack()
+    Label(zmiany_screen, text="-Dodano do repozytorium Github", bg="#BCE27F").pack()
+    Label(zmiany_screen, text="-Dodano obsługę kolorów", bg="#BCE27F").pack()
+    Label(zmiany_screen, text="", bg="#BCE27F").pack()
+    Label(zmiany_screen, text="V0.3", bg="#BCE27F").pack()
+    Label(zmiany_screen, text="", bg="#BCE27F").pack()
+    Label(zmiany_screen, text="", bg="#BCE27F").pack()
+    Label(zmiany_screen, text="", bg="#BCE27F").pack()
+    Label(zmiany_screen, text="", bg="#BCE27F").pack()
+    Label(zmiany_screen, text="", bg="#BCE27F").pack()
+    Button(zmiany_screen, text="Zamknij", command=zamknij3, bg="green").pack()
+    zmiany_screen.resizable(False, False)
+
+def zamknij3():
+    zmiany_screen.destroy()
 
 def zamknij2():
     info_screen.destroy()
@@ -187,8 +219,8 @@ def delete_user_not_found_screen():
 def main_account_screen():
     global main_screen
     main_screen = Tk()
-    main_screen.geometry("300x350")
-    main_screen.title("Calculit!") 
+    main_screen.geometry("300x420")
+    main_screen.title("Calculit! v0.2") 
     Label(text="Wybierz Metodę", bg="#007FFF", width="300", height="2", font=("Calibri", 13)).pack()
     Label(text="").pack()
     Button(text="Logowanie", bg="#BCE27F", height="2", width="30", command = login).pack()
@@ -197,7 +229,12 @@ def main_account_screen():
     Label(text="").pack()
     Button(text="Informacje", bg="#BCE27F", height="2", width="30", command=info).pack()
     Label(text="").pack()
+    Button(text="Zmiany", bg="#BCE27F", height="2", width="30", command=zmiany).pack()
+    Label(text="").pack()
     Button(text="Zamknij", bg="#BCE27F", height="2", width="30", command=zamknijperm).pack()
+    main_screen.resizable(False, False)
+
+    
     main_screen.mainloop()
 
 
